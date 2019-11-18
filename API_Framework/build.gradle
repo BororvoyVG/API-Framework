@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "4.1.4"
+}
+
+group 'API'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'io.rest-assured:rest-assured:4.1.2'
+    testImplementation 'io.rest-assured:json-path:4.1.2'
+    testImplementation 'io.rest-assured:xml-path:4.1.2'
+    testImplementation 'io.rest-assured:json-schema-validator:4.1.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
