@@ -8,8 +8,20 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
+ext {
+    dependencyVersions = [
+            guava           : '18.0',
+//            wrapper.gradleVersion: '5.5.1',
+            cucumber        : '4.8.0',
+            junit           : '5.5.0',
+            webdrivermanager: '3.7.1'
+    ]
+    wrapper.gradleVersion = '5.6.1'
+}
+
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -17,11 +29,23 @@ dependencies {
     testImplementation 'io.rest-assured:json-path:4.1.2'
     testImplementation 'io.rest-assured:xml-path:4.1.2'
     testImplementation 'io.rest-assured:json-schema-validator:4.1.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${dependencyVersions.junit}"
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
-
+    compile group: 'com.epam.reportportal', name: 'commons-model', version: '4.2.0'
+    compile group: 'com.epam.reportportal', name: 'client-java', version: '4.0.8'
+    compile group: 'com.epam.reportportal', name: 'logger-java-log4j', version: '4.0.1'
+    compile "com.google.guava:guava:${dependencyVersions.guava}"
+    compile "org.springframework.hateoas:spring-hateoas:0.18.0.RELEASE"
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.29'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    testImplementation "io.cucumber:cucumber-java:${dependencyVersions.cucumber}"
+    testImplementation "io.cucumber:cucumber-junit:${dependencyVersions.cucumber}"
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.7.1'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
 }
 
 test {
