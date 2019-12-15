@@ -19,5 +19,6 @@ public class HomePageStepDefinition {
         String url = "https://www.ebay.com/";
         log.info("Open url: " + url);
         driver.get(url);
+        driver.quit();
     }
 }
