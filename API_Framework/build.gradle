@@ -10,11 +10,35 @@ sourceCompatibility = 1.8
 
 ext {
     dependencyVersions = [
-            guava           : '18.0',
-//            wrapper.gradleVersion: '5.5.1',
-            cucumber        : '4.8.0',
-            junit           : '5.5.0',
-            webdrivermanager: '3.7.1'
+            /*REST-ASSURED*/
+            rest_assured          : '4.1.2',
+            json_path             : '4.1.2',
+            xml_path              : '4.1.2',
+            json_schema_validator : '4.1.2',
+            /*JUNIT*/
+            junit_jupiter_api     : '5.5.0',
+            junit_jupiter_engine  : '5.5.0',
+            junit_vintage_engine  : '5.5.0',
+            /*REPORT-PORTAL*/
+            commons_model         : '4.2.0',
+            client_java           : '4.0.8',
+            logger_java_log4j     : '4.0.1',
+            guava                 : '18.0',
+            spring_hateoas        : '0.18.0.RELEASE',
+            /*CUCUMBER*/
+            cucumber              : '4.8.0',
+            /*LOGGING*/
+            slf4j_api             : '1.7.29',
+            slf4j_log4j12         : '1.7.29',
+            /*SELENIUM*/
+            webdrivermanager      : '3.7.1',
+            selenium_java         : '3.141.59',
+            selenium_chrome_driver: '3.141.59',
+            /*APACHE-COMMONS*/
+            commons_configuration2:'2.6',
+            commons_beanutils:'1.9.4'
+
+
     ]
     wrapper.gradleVersion = '5.6.1'
 }
@@ -25,27 +49,34 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.rest-assured:rest-assured:4.1.2'
-    testImplementation 'io.rest-assured:json-path:4.1.2'
-    testImplementation 'io.rest-assured:xml-path:4.1.2'
-    testImplementation 'io.rest-assured:json-schema-validator:4.1.2'
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit}"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit}"
-    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${dependencyVersions.junit}"
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
-    compile group: 'com.epam.reportportal', name: 'commons-model', version: '4.2.0'
-    compile group: 'com.epam.reportportal', name: 'client-java', version: '4.0.8'
-    compile group: 'com.epam.reportportal', name: 'logger-java-log4j', version: '4.0.1'
+    /*-------------------------------REST-ASSURED--------------------------------------*/
+    testImplementation "io.rest-assured:rest-assured:${dependencyVersions.rest_assured}"
+    testImplementation "io.rest-assured:json-path:${dependencyVersions.json_path}"
+    testImplementation "io.rest-assured:xml-path:${dependencyVersions.xml_path}"
+    testImplementation "io.rest-assured:json-schema-validator:${dependencyVersions.json_schema_validator}"
+    /*----------------------------------JUNIT--------------------------------------*/
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit_jupiter_api}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit_jupiter_engine}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${dependencyVersions.junit_vintage_engine}"
+    /*-------------------------------REPORT-PORTAL--------------------------------------*/
+    compile group: 'com.epam.reportportal', name: 'commons-model', version: dependencyVersions.commons_model
+    compile group: 'com.epam.reportportal', name: 'client-java', version: dependencyVersions.client_java
+    compile group: 'com.epam.reportportal', name: 'logger-java-log4j', version: dependencyVersions.logger_java_log4j
     compile "com.google.guava:guava:${dependencyVersions.guava}"
-    compile "org.springframework.hateoas:spring-hateoas:0.18.0.RELEASE"
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.29'
-    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    compile "org.springframework.hateoas:spring-hateoas:${dependencyVersions.spring_hateoas}"
+    /*-------------------------------LOGGING--------------------------------------*/
+    compile group: 'org.slf4j', name: 'slf4j-api', version: dependencyVersions.slf4j_api
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: dependencyVersions.slf4j_log4j12
+    /*-------------------------------CUCUMBER--------------------------------------*/
     testImplementation "io.cucumber:cucumber-java:${dependencyVersions.cucumber}"
     testImplementation "io.cucumber:cucumber-junit:${dependencyVersions.cucumber}"
-    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.7.1'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    /*-------------------------------SELENIUM--------------------------------------*/
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: dependencyVersions.webdrivermanager
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: dependencyVersions.selenium_java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: dependencyVersions.selenium_chrome_driver
+    /*-------------------------------APACHE-COMMONS--------------------------------------*/
+    compile group: 'org.apache.commons', name: 'commons-configuration2', version: dependencyVersions.commons_configuration2
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: dependencyVersions.commons_beanutils
 }
 
 test {
