@@ -1,5 +1,6 @@
-Feature: Is it Friday yet?
-  Everybody wants to know when it's Friday
+Feature: EBAY.COM
 
-  Scenario: Sunday isn't Friday
+  Scenario: Log in
     Given Open home page
+    When User logs in with default credentials
+    Then User verifies that he is logged in
