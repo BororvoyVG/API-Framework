@@ -35,8 +35,8 @@ ext {
             selenium_java         : '3.141.59',
             selenium_chrome_driver: '3.141.59',
             /*APACHE-COMMONS*/
-            commons_configuration2:'2.6',
-            commons_beanutils:'1.9.4'
+            commons_configuration2: '2.6',
+            commons_beanutils     : '1.9.4'
 
 
     ]
@@ -74,9 +74,16 @@ dependencies {
     compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: dependencyVersions.webdrivermanager
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: dependencyVersions.selenium_java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: dependencyVersions.selenium_chrome_driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: '3.141.59'
+    compile group: 'com.codeborne', name: 'selenide', version: '5.5.1'
+
+
     /*-------------------------------APACHE-COMMONS--------------------------------------*/
     compile group: 'org.apache.commons', name: 'commons-configuration2', version: dependencyVersions.commons_configuration2
     compile group: 'commons-beanutils', name: 'commons-beanutils', version: dependencyVersions.commons_beanutils
+    /*------------------------------- VAVR --------------------------------------*/
+    compile group: 'io.vavr', name: 'vavr', version: '0.10.2'
+
 }
 
 test {

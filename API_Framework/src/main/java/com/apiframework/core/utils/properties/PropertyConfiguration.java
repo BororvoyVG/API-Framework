@@ -1,5 +1,4 @@
-package com.apiframework.core.utils;
-
+package com.apiframework.core.utils.properties;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration2.Configuration;
@@ -39,5 +38,9 @@ public class PropertyConfiguration {
 
     public static String getUserPassword() {
         return getConfig().getString("password");
+    }
+
+    public static String getBrowserName() {
+        return getConfig().getString("browser.name");
     }
 }
