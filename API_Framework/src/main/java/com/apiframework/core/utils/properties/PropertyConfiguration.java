@@ -1,5 +1,8 @@
 package com.apiframework.core.utils.properties;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration2.Configuration;
 import org.apache.commons.configuration2.FileBasedConfiguration;
@@ -9,6 +12,7 @@ import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 @Slf4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PropertyConfiguration {
 
     public static Configuration getConfig() {
@@ -27,6 +31,7 @@ public class PropertyConfiguration {
         }
         return config;
     }
+
 
     public static String getHomeUrl() {
         return getConfig().getString("home.url");
