@@ -46,6 +46,7 @@ ext {
 repositories {
     mavenCentral()
     jcenter()
+    maven { url "http://dl.bintray.com/epam/reportportal" }
 }
 
 dependencies {
@@ -83,6 +84,10 @@ dependencies {
     compile group: 'commons-beanutils', name: 'commons-beanutils', version: dependencyVersions.commons_beanutils
     /*------------------------------- VAVR --------------------------------------*/
     compile group: 'io.vavr', name: 'vavr', version: '0.10.2'
+
+    // https://mvnrepository.com/artifact/com.epam.reportportal/agent-java-cucumber
+    compile group: 'com.epam.reportportal', name: 'agent-java-cucumber', version: '3.0.1'
+
 
 }
 
