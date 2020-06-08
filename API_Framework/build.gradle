@@ -6,8 +6,6 @@ plugins {
 group 'API'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-
 ext {
     dependencyVersions = [
             /*REST-ASSURED*/
@@ -26,7 +24,7 @@ ext {
             guava                 : '18.0',
             spring_hateoas        : '0.18.0.RELEASE',
             /*CUCUMBER*/
-            cucumber              : '4.8.0',
+            cucumber              : '6.0.0',
             /*LOGGING*/
             slf4j_api             : '1.7.29',
             slf4j_log4j12         : '1.7.29',
@@ -70,7 +68,19 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: dependencyVersions.slf4j_log4j12
     /*-------------------------------CUCUMBER--------------------------------------*/
     testImplementation "io.cucumber:cucumber-java:${dependencyVersions.cucumber}"
-    testImplementation "io.cucumber:cucumber-junit:${dependencyVersions.cucumber}"
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version:dependencyVersions.cucumber
+    compile group: 'io.cucumber', name: 'cucumber-java', version: dependencyVersions.cucumber
+    compile group: 'io.cucumber', name: 'cucumber-java', version: dependencyVersions.cucumber
+    compile group: 'io.cucumber', name: 'cucumber-core', version: dependencyVersions.cucumber
+
+    compile group: 'io.cucumber', name: 'gherkin', version: '13.0.0'
+
+    /*-------------------------------LOMBOK--------------------------------------*/
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
     /*-------------------------------SELENIUM--------------------------------------*/
     compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: dependencyVersions.webdrivermanager
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: dependencyVersions.selenium_java
