@@ -68,7 +68,7 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: dependencyVersions.slf4j_log4j12
     /*-------------------------------CUCUMBER--------------------------------------*/
     testImplementation "io.cucumber:cucumber-java:${dependencyVersions.cucumber}"
-    testCompile group: 'io.cucumber', name: 'cucumber-junit', version:dependencyVersions.cucumber
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: dependencyVersions.cucumber
     compile group: 'io.cucumber', name: 'cucumber-java', version: dependencyVersions.cucumber
     compile group: 'io.cucumber', name: 'cucumber-java', version: dependencyVersions.cucumber
     compile group: 'io.cucumber', name: 'cucumber-core', version: dependencyVersions.cucumber
@@ -97,6 +97,11 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.epam.reportportal/agent-java-cucumber
     compile group: 'com.epam.reportportal', name: 'agent-java-cucumber', version: '3.0.1'
+
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
 
 
 }

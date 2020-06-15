@@ -1,6 +1,5 @@
-Feature: EBAY.COM
+Feature: API
 
-  Scenario: Log in
-    Given Open home page
-    When User logs in with default credentials
-    Then User verifies that he is logged in
+  Scenario: Post a blog post
+    Given Send post request to create a blogpost and get 201
+
